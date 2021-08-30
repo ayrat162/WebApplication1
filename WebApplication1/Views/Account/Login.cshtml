@@ -1,0 +1,44 @@
+﻿@using WebApplication1.Models
+@model LoginViewModel
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="~/Content/styles.css">
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="center-center">
+
+            @{
+                if (Model != null && !string.IsNullOrEmpty(Model.Info))
+                {
+                    <div class="margin-5">@Model.Info</div>
+                }
+            }
+            <div class="margin-5">
+                <div class="login-caption inline"><span>Login</span></div>
+
+                <div class="inline">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+            <div class="margin-5">
+                <div class="login-caption inline">
+                    <span>Password</span>
+                </div>
+                <div class="inline">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+            <div class="margin-5">
+                <input type="submit" value="Login" />
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+

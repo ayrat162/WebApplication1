@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.FileModel
+
+<html>
+<head>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="~/Content/styles.css">
+</head>
+<body>
+    <div class="center-top">
+        <div class="column left-col">
+            <div>Welcome @HttpContext.Current.User.Identity.Name</div>
+            @Html.ActionLink("Sign-Out", "Signout", "Account")
+
+
+            <br /><br /><br />
+            <div>Available Files:</div>
+            <div>
+                @foreach (string fileName in Model.FileNames)
+                {
+                    <li>
+                        @Html.ActionLink(fileName, "DownloadFile", new { fileName = fileName })
+                    </li>
+                }
+            </div>
+        </div>
+        <div class="column middle-col">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="emoji laugh">
+                        <figure class="face">
+                            <span class="eyes">
+                                <span class="eye"></span>
+                                <span class="eye"></span>
+                            </span>
+                            <span class="mouth">
+                            </span>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column right-col">CCC</div>
+    </div>
+</body>
+</html>
